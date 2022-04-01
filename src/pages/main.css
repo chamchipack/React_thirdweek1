@@ -1,0 +1,86 @@
+.head-background{
+    width: 1000px;
+    height: 60px;
+    margin: 0 auto;
+}
+.head-ground{
+    width: 100%;
+    height: 100%;
+    background-color: aqua;
+}
+.content-ground{
+    width: 100%;
+    height: 100%;
+    padding-top: 50px;
+}
+.head-inner-box{
+    width: 80%;
+    height: 80%;
+    margin: 0 auto;
+    padding: 10px;
+}
+.head-content{
+    width: 100%;
+    height: 50%;
+}
+.FaHome{
+    font-size: 30px;
+    float: left;
+}
+.clicked-btn{
+    width: 150px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    margin-left: 10px;
+    float: right;
+    background-color: aliceblue;
+}
+.clicked-btn p {
+    margin: 10px;
+}
+.content-box{
+    width: 95%;
+    height: 90%;
+    background-color: violet;
+    margin: 0 auto;
+}
+.add-circle{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: black;
+    position: absolute;
+    right: 100px;
+    bottom: 60px;
+}
+
+/* register */
+.register-box{
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.register-inner{
+    margin: 0 auto;
+    width: 70%;
+    height: 60%;
+    background-color: azure;
+}
+.reg-input{
+    margin-top: 40px;
+}
+.reg-input input{
+    width: 300px;
+    height: 40px;
+    border: none;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+.reg-input button{
+    width: 300px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+}
