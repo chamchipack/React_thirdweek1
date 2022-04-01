@@ -1,13 +1,24 @@
 import './main.css'
 import {getCookie, setCookie, deleteCookie} from '../cookie/cookie'
+import {useDispatch} from 'react-redux';
+import {actionCreators as userActions} from '../redux/user';
+import { useState } from 'react';
+
 
 function Login(){
+    const dispatch = useDispatch();
+    const [id, setId] = useState();
+    const [pwd, setPwd] = useState();
 
     console.log(getCookie('user_id'));
     const login = () =>{
-        setCookie('user_id', 'perl', 3);
-        setCookie('user_pwd', 'pppp',3);
+        if(id === '' || pwd === ''){
+            window.alert('공란이야')
+            return;
+        }
+        dispatch(userActions.loginFB(id, pwd));
     }
+    console.log({id, pwd})
 
     return(
         <div className="register-box">
@@ -17,14 +28,14 @@ function Login(){
                 </div>
                 <div className="reg-input">
                     <h4>아이디</h4>
-                    <input/>
+                    <input onChange={(e)=>{setId(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>비밀번호</h4>
-                    <input/>
+                    <input onChange={(e)=>{setPwd(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
-                    <button onClick={()=>{console.log('로그인했다'); login()}}>로그인</button>
+                    <button onClick={()=>{login()}}>로그인</button>
                 </div>
             </div>
         </div>

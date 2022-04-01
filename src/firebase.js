@@ -1,4 +1,7 @@
 // Import the functions you need from the SDKs you need
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -6,6 +9,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyAfN7S084deZRlDgV5caJymHp52js5TtLc",
   authDomain: "sparta-react-4e8e5.firebaseapp.com",
@@ -15,7 +19,11 @@ const firebaseConfig = {
   appId: "1:923369430698:web:b220b4fa15be8cf45f3ad3",
   measurementId: "G-504E55XBVY"
 };
-
+const apiKey = firebaseConfig.apiKey;
 // Initialize Firebase
 initializeApp(firebaseConfig)
-export const db = getFirestore();
+// const auth = firebase.auth();
+// export {auth}
+export const firestore = getFirestore();
+export {apiKey};
+ 

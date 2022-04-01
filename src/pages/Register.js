@@ -1,5 +1,25 @@
+import { useState } from 'react';
+import {useDispatch} from 'react-redux';
+import {actionCreators as userActions} from '../redux/user';
 
 function Register(){
+    const dispatch = useDispatch();
+    const [id, setId] = useState('');
+    const [pwd, setPwd] = useState('');
+    const [pwd_Check, setPwd_Check] = useState('');
+    const [nick, setNick] = useState('');
+
+    const signup = () => {
+        if (pwd !== pwd_Check){
+            return;
+        }
+        if (id === '' || pwd === '' || nick === ''){
+            return;
+        }
+        dispatch(userActions.signupFB(id, pwd, nick))
+    }
+    console.log({id, pwd, nick})
+
     return(
         <div className="register-box">
             <div className="register-inner">
@@ -8,22 +28,22 @@ function Register(){
                 </div>
                 <div className="reg-input">
                     <h4>아이디</h4>
-                    <input/>
+                    <input onChange={(e)=>{setId(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>닉네임</h4>
-                    <input/>
+                    <input onChange={(e)=>{setNick(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>비밀번호</h4>
-                    <input/>
+                    <input onChange={(e)=>{setPwd(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>비밀번호확인</h4>
-                    <input/>
+                    <input onChange={(e)=>{setPwd_Check(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
-                    <button>저장하기</button>
+                    <button onClick={()=>{signup()}}>저장하기</button>
                 </div>
             </div>
         </div>
