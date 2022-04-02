@@ -77,7 +77,7 @@ const loginFB = (id, pwd) => {
                 console.log(user)
                 dispatch(setUser({nick : user.displayName, id : id, uid : user.uid}))
                 //dispatch(setUser({id : id, }))
-                history.push('/main')
+                history.push('/')
             })
             .catch((error) => {
                 console.log('로그인 안대쓰')

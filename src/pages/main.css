@@ -42,7 +42,6 @@
 .content-box{
     width: 95%;
     height: 90%;
-    background-color: #eee;
     margin: 0 auto;
 }
 .add-circle{
@@ -90,19 +89,22 @@
     height: 100%;
     margin: 0 auto;
     padding-top: 20px;
+    
 }
 .post-inner{
     width: 100%;
     height: 400px;
+    
 }
 .post-content{
     float: left;
-    width: 45%;
     height: 100%;
     margin-left: 10px;
+    margin-bottom: 20px;
 }
 .post-image{
-    width: 50%;
+    width: 60%;
+    height: 60%;
     border-radius: 10px;
 }
 textarea{
@@ -113,4 +115,104 @@ textarea{
     font-size: 20px;
     resize: none;
     padding: 20px;
+}
+.post-left{
+    width: 600px;
+    height: 100%;
+}
+.post-right{
+    width: 400px;
+    height: 100%;
+    margin-left: 100px;
+    text-align: left;
+}
+
+.file-input{
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+}
+.file-input input{
+    border: none;
+}
+.text-area{
+    height: 400px;
+}
+.add-btn{
+    border: none;
+    border-radius: 20px;
+    width: 200px;
+    height: 50px;
+    background-color: rgb(167, 202, 249);
+}
+.post-float img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #eee;
+}
+.post-profile{
+    width: 60%;
+    height: 100px;
+}
+.post-float{
+    float: left;
+    margin-right: 10px;
+}
+.dt{
+    margin-left: 20%;
+    position: absolute;
+
+}
+
+@media screen and (max-width : 1540px) {
+    .post-left{
+        width: 400px;
+        height: 100%;
+    }
+    .post-right{
+        width: 400px;
+        height: 100%;
+        margin-left: 100px;
+        text-align: left;
+    }
+    .post-image{
+        width: 55%;
+        height: 50%;
+        border-radius: 10px;
+    }
+}
+@media screen and (max-width : 1262px){
+    .post-left{
+        width: 300px;
+        height: 100%;
+    }
+    .post-right{
+        width: 300px;
+        height: 100%;
+        margin-left: 100px;
+        text-align: left;
+    }
+    .post-image{
+        width: 75%;
+        height: 50%;
+        border-radius: 10px;
+    }
+}
+@media screen and (max-width : 985px) {
+    .post-left{
+        width: 160px;
+        height: 100%;
+    }
+    .post-right{
+        width: 330px;
+        height: 100%;
+        margin-left: 70px;
+        text-align: left;
+    }
+    .post-image{
+        width: 130%;
+        height: 50%;
+        border-radius: 10px;
+    }
 }

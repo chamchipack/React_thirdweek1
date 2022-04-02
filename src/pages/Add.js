@@ -43,12 +43,16 @@ function Add(){
     return(
         <>
         <div className="add-background">
-            <div><h3>게시글 작성</h3></div>
             <div>
+                <h3>게시글 작성</h3>
+            </div>
+            <div className="file-input">
                 <input type="file" onChange={selectFile} ref={fileInput}/>
             </div>
-            <div><textarea onChange={onChange} ref={text}></textarea></div>
-            <button onClick={()=>{addPost()}}>제출하기</button>
+            <div className="text-area">
+                <textarea onChange={onChange} ref={text}></textarea>
+            </div>
+            <button className="add-btn" onClick={()=>{addPost()}}>제출하기</button>
         </div>
         </>
     )

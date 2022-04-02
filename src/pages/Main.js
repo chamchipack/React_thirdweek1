@@ -11,11 +11,11 @@ function Main(){
     useEffect(()=>{
         dispatch(getPostFB())
     },[])
+    const session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
+    const is_session = sessionStorage.getItem(session_key)? true : false;
 
     const is_login = useSelector((state) => state.user.is_login);
     const post_list = useSelector((state) => state.post.list);
-    const session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
-    const is_session = sessionStorage.getItem(session_key)? true : false;
     console.log(post_list)
     
     let btn_component;
@@ -25,18 +25,17 @@ function Main(){
     return(
         <>
             <div className='content-ground'>
-                <h3>mainpage</h3>
                 <div className='content-box'>
                     <div className="post-background">
                         <div className="post-inner">
-                    {
-                        post_list.map((e,idx) =>{
-                            console.log(e)
-                            return(
-                                <Post post_list={post_list} idx={idx}></Post>
-                            )
-                        })
-                    }
+                            {
+                                post_list.map((e,idx) =>{
+                                    console.log(e)
+                                    return(
+                                        <Post post_list={post_list} idx={idx}></Post>
+                                    )
+                                })
+                            }
                         </div>
                     </div>
                 </div>

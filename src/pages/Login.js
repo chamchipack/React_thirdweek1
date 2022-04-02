@@ -18,7 +18,6 @@ function Login(){
         }
         dispatch(userActions.loginFB(id, pwd));
     }
-    console.log({id, pwd})
 
     return(
         <div className="register-box">

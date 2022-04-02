@@ -32,7 +32,7 @@ function Header(){
                 <div className='head-ground'>
                     <div className='head-inner-box'>
                         <div className='head-content'>
-                            <Link to='/main'><FaHome className='FaHome' /></Link>
+                            <Link to='/main'><FaHome onClick={()=>{history.push('/')}} className='FaHome' /></Link>
                             <Link to='/register'><div className='clicked-btn'><p>내정보</p></div></Link>
                             <Link to='/login'><div onClick={()=>{dispatch(userActions.logoutFB());}} className='clicked-btn'><p>로그아웃</p></div></Link>
                         </div>
@@ -47,7 +47,7 @@ function Header(){
             <div className='head-ground'>
                 <div className='head-inner-box'>
                     <div className='head-content'>
-                        <Link to='/main'><FaHome onClick={()=>{history.push('/main')}} className='FaHome' /></Link>
+                        <Link to='/main'><FaHome onClick={()=>{history.push('/')}} className='FaHome' /></Link>
                         <Link to='/register'><div onClick={()=>{history.push('/register')}} className='clicked-btn'><p>회원가입</p></div></Link>
                         <Link to='/login'><div onClick={()=>{history.push('/login')}} className='clicked-btn'><p>로그인</p></div></Link>
                     </div>

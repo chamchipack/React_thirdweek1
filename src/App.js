@@ -25,7 +25,7 @@ function App() {
     <div className="App">
       <Header/>
         <ConnectedRouter history={history}>
-        <Route path='/main' exact>
+        <Route path='/' exact>
           <Main></Main>
         </Route>
         <Route path='/add-content'>
