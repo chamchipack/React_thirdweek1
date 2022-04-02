@@ -66,7 +66,6 @@
     margin: 0 auto;
     width: 70%;
     height: 60%;
-    background-color: azure;
 }
 .reg-input{
     margin-top: 40px;
@@ -75,7 +74,7 @@
     width: 300px;
     height: 40px;
     border: none;
-    background-color: aliceblue;
+    background-color: #eee;
     border-radius: 10px;
 }
 .reg-input button{
@@ -83,4 +82,35 @@
     height: 40px;
     border: none;
     border-radius: 10px;
+}
+
+/* post page */
+.post-background{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+.post-inner{
+    width: 100%;
+    height: 400px;
+}
+.post-content{
+    float: left;
+    width: 45%;
+    height: 100%;
+    margin-left: 10px;
+}
+.post-image{
+    width: 50%;
+    border-radius: 10px;
+}
+textarea{
+    width: 400px;
+    height: 300px;
+    border: 3px solid rgb(167, 202, 249);
+    border-radius: 20px;
+    font-size: 20px;
+    resize: none;
+    padding: 20px;
 }

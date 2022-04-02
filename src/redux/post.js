@@ -1,47 +1,87 @@
 import {createAction, handleActions} from 'redux-actions';
 import {produce} from 'immer';
-import { collection, getDocs } from 'firebase/firestore';
-import { firestore } from '../firebase';
+import {collection, doc, getDocs, addDoc, updateDoc, deleteDoc} from 'firebase/firestore';
+import {db} from '../firebase';
+import moment from 'moment';
 
-const SET_POST = 'SET_POST';
+const LOAD = 'LOAD_POST';
 const ADD_POST = 'ADD_POST';
+const UPLOAD = 'UPLOAD'
 
-const setPost = createAction(SET_POST, (post_list) => ({post_list}));
-const addPost = createAction(ADD_POST, (post) => ({post}));
+// const setPost = createAction(SET_POST, (post_list) => ({post_list}));
+// const addPost = createAction(ADD_POST, (post) => ({post}));
 
 
 const initialState = {
     list : [],
 };
 const initilaPost = {
-    // 3-2 7분
+    id : 'id',
+    user_id : 'user_id',
+    nick : 'user_nick',
+    user_profile : 'www',
+    url : '...',
+    contents : 'dd',
+    comment_cnt : 0,
+    insert_dt : 'ds'
 };
-export function loadWidgets(dictionary) {
-    return { type: SET_POST, dictionary };
+export function loadPost(post) {
+    return { type: LOAD, post };
+}
+export function uploadImage(image){
+    return { type : UPLOAD, image}
 }
 
 export const getPostFB = () => {
-    return function (dispatch){
-        const postdb = firestore.collection('post')
+    return async function (dispatch, getState){
+        const post_data = await getDocs(collection(db, 'post'))
+        let post_list = [];
+        post_data.forEach((e)=>{
+            post_list.push({...e.data()})
+            console.log(e.data(), e.id)
+        })
+        dispatch(loadPost(post_list))
     }
 }
 
+export const addPostFB = (file, text) => {
+    return async function(dispatch, getState){
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+        var day = ('0' + today.getDate()).slice(-2);
 
-export default handleActions(
-    {
-        [SET_POST]:(state, action) => produce(state, (draft)=>{
+        var dateString = year + '-' + month + '-' + day;
 
-        }),
-        [ADD_POST]:(state, action) => produce(state, (draft)=>{
+        console.log(dateString)
+        console.log({file, text})
+        let info = getState();
+        const uploadPost = {
+            user_id: info.user.user.uid,
+            nick: info.user.user.nick,
+            user_profile: 'https://e7.pngegg.com/pngimages/764/590/png-clipart-emoji-emoticon-smiley-heart-shaped-light-head-smiley.png',
+            url: file,
+            contents: text,
+            comment_cnt: 0,
+            insert_dt: dateString
+        }
+        console.log(uploadPost)
+        // await addDoc(collection(db,'post'),post)
+    }
+}
 
-        })
-    }, initialState);
-
-const actionCreators = {
-    setPost,
-    addPost,
-    getPostFB,
-
-};
-    
-export {actionCreators}
+export default function reducer(state = initialState, action = {}) { // state = {} : 디폴트값
+    switch (action.type) {
+        case "LOAD_POST" : {
+            return {
+                list : action.post
+            }
+        }
+        case "UPLOAD" : {
+            return {
+                list : action.image
+            }
+        }
+        default: return state;
+    }
+}

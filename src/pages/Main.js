@@ -27,6 +27,8 @@ function Main(){
             <div className='content-ground'>
                 <h3>mainpage</h3>
                 <div className='content-box'>
+                    <div className="post-background">
+                        <div className="post-inner">
                     {
                         post_list.map((e,idx) =>{
                             console.log(e)
@@ -35,6 +37,8 @@ function Main(){
                             )
                         })
                     }
+                        </div>
+                    </div>
                 </div>
             </div>
             
