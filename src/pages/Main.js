@@ -6,16 +6,20 @@ import {apiKey} from '../firebase';
 import Post from './Post'
 import { getPostFB } from '../redux/post'
 
+
 function Main(){
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(getPostFB())
+        
     },[])
     const session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
     const is_session = sessionStorage.getItem(session_key)? true : false;
 
     const is_login = useSelector((state) => state.user.is_login);
     const post_list = useSelector((state) => state.post.list);
+    const comment_list = useSelector((state)=> state.comment.list);
+
     console.log(post_list)
     
     let btn_component;
@@ -30,9 +34,8 @@ function Main(){
                         <div className="post-inner">
                             {
                                 post_list.map((e,idx) =>{
-                                    console.log(e)
                                     return(
-                                        <Post post_list={post_list} idx={idx}></Post>
+                                        <Post comment={comment_list} post_list={post_list} idx={idx}></Post>
                                     )
                                 })
                             }

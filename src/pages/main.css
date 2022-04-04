@@ -164,6 +164,46 @@ textarea{
     position: absolute;
 
 }
+.comment_modal-btn{
+    width: 130px;
+    height: 30px;
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(124, 188, 240);
+}
+
+/* modal */
+.black-modal{
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 120%;
+    position: fixed;
+    text-align: center;
+    margin-left: -14%;
+    margin-top: -130px;
+}
+.white-modal{
+    display: inline-block;
+    background: white;
+    margin-top: 200px;
+    border-radius: 20px;
+    height: 700px;
+    width: 500px;
+    opacity: 1;
+    padding: 30px;
+  }
+  .close-btn{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background-color: rgb(222, 168, 130);
+      margin-left: 480px;
+  }
+  .comment-box{
+      text-align: left;
+      margin-left: 30px;
+  }
 
 @media screen and (max-width : 1540px) {
     .post-left{

@@ -13,8 +13,6 @@ function Header(){
     const is_login = useSelector((state) => state.user.is_login);
     const session_key = `firebase:authUser:${apiKey}:[DEFAULT]`;
     const is_session = sessionStorage.getItem(session_key)? true : false;
-    console.log(is_session);
-    console.log(is_login)
     // const [isLogin, setIsLogin] = useState(false);
     // useEffect(()=>{
     //     let cookie = getCookie('user_id');

@@ -36,10 +36,10 @@ export const getPostFB = () => {
     return async function (dispatch, getState){
         const post_data = await getDocs(collection(db, 'post'))
         let post_list = [];
-        post_data.forEach((e)=>{
-            post_list.push({...e.data()})
-            console.log(e.data(), e.id)
+        post_data.forEach((e, i)=>{
+            post_list.push({...e.data(), id : e.id})
         })
+        console.log(post_list)
         dispatch(loadPost(post_list))
     }
 }
@@ -52,8 +52,6 @@ export const addPostFB = (file, text) => {
         let day = ('0' + today.getDate()).slice(-2);
         let dateString = year + '-' + month + '-' + day;
 
-        console.log(dateString)
-        console.log({file, text})
         let info = getState();
         const uploadPost = {
             user_id: info.user.user.uid,
@@ -69,7 +67,7 @@ export const addPostFB = (file, text) => {
         history.push('/');
     }
 }
-
+// uid, nick, content, insert_dt, 
 export default function reducer(state = initialState, action = {}) { // state = {} : 디폴트값
     switch (action.type) {
         case "LOAD_POST" : {

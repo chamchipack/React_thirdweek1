@@ -4,6 +4,7 @@ import {createBrowserHistory} from 'history';
 import {connectRouter} from 'connected-react-router'
 import User from './user';
 import Post from './post';
+import Comment from './comment';
 // 여러개의 리듀서를 가져올 수 있다.
 
 
@@ -13,6 +14,7 @@ export const history = createBrowserHistory();
 const rootReducer = combineReducers({
     user : User,
     post : Post,
+    comment : Comment,
     router : connectRouter(history),
 });
 const middlewares = [thunk.withExtraArgument({history:history})];
