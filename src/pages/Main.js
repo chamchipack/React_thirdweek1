@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {apiKey} from '../firebase';
 import Post from './Post'
 import { getPostFB } from '../redux/post'
+import Permit from '../Permit';
 
 
 function Main(){

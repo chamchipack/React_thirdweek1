@@ -17,6 +17,7 @@ function Modalcomment(props){
         console.log('dddddd')
         dispatch(addCommentFB(getText))
     }
+    console.log(props.children)
     
     return(
         <div className="black-modal" >
@@ -32,4 +33,5 @@ function Modalcomment(props){
         </div>
     )
 }
+
 export default Modalcomment

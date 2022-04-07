@@ -26,18 +26,11 @@ const user_initial = {
     user_name : 'mean0',
 }
 
-// middleware action
-// const loginAction = (user) => {
-//     return function (dispatch, getState, {history}){
-//         console.log(history);
-//         dispatch(setUser(user));
-//         history.push('/main');
-//     }
-// };
 
-const signupFB = (id, pwd, nick) =>{
+
+const signupFB = (id, pwd, nick) =>{ // 회원가입 로직
     return function(dispatch, getState, {history}){
-        const auth = getAuth();
+        const auth = getAuth(); // auth : 인증장치
         createUserWithEmailAndPassword(auth, id, pwd)
             .then((userCredential) => {
                 // Signed in

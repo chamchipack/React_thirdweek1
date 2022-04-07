@@ -25,21 +25,15 @@ const initilaPost = {
     comment_cnt : 0,
     insert_dt : 'ds'
 };
-export function loadPost(post) {
-    return { type: LOAD, post };
-}
-export function uploadImage(image){
-    return { type : UPLOAD, image}
-}
 
-export const getPostFB = () => {
+
+export const getPostFB = () => { // 포스팅 전체 가져오기
     return async function (dispatch, getState){
-        const post_data = await getDocs(collection(db, 'post'))
-        let post_list = [];
+        const post_data = await getDocs(collection(db, 'post')) // db에서 전체 데이터 가져오기
+        let post_list = []; 
         post_data.forEach((e, i)=>{
-            post_list.push({...e.data(), id : e.id})
+            post_list.push({...e.data(), id : e.id}) // 새로운 배열을 만들어 데이터를 담아준다.
         })
-        console.log(post_list)
         dispatch(loadPost(post_list))
     }
 }
@@ -51,9 +45,9 @@ export const addPostFB = (file, text) => {
         let month = ('0' + (today.getMonth() + 1)).slice(-2);
         let day = ('0' + today.getDate()).slice(-2);
         let dateString = year + '-' + month + '-' + day;
-
-        let info = getState();
-        const uploadPost = {
+        // 이상 오늘의 날짜를 가져오는 내장함수 Date를 이용
+        let info = getState();  // getState : 스토어에 
+        const uploadPost = {    // 추가된 포스트를 한번에 보여줌
             user_id: info.user.user.uid,
             nick: info.user.user.nick,
             user_profile: 'https://e7.pngegg.com/pngimages/764/590/png-clipart-emoji-emoticon-smiley-heart-shaped-light-head-smiley.png',
@@ -62,8 +56,7 @@ export const addPostFB = (file, text) => {
             comment_cnt: 0,
             insert_dt: dateString,
         }
-        console.log(uploadPost)
-        await addDoc(collection(db,'post'),uploadPost)
+        await addDoc(collection(db,'post'),uploadPost) // db에 그대로 넣기
         history.push('/');
     }
 }

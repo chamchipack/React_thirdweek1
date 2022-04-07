@@ -11,6 +11,7 @@ import {actionCreators as userActions} from './redux/user';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import {apiKey} from './firebase';
+import Permit from './Permit';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,9 @@ function App() {
           <Login/>
         </Route>
         </ConnectedRouter>
+        <Permit>
+          <h3>hello</h3>
+        </Permit>
     </div>
   );
 }

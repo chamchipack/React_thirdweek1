@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import {actionCreators as userActions} from '../redux/user';
+import Input from '../elements/Input'
 
 function Register(){
     const dispatch = useDispatch();
@@ -28,19 +29,19 @@ function Register(){
                 </div>
                 <div className="reg-input">
                     <h4>아이디</h4>
-                    <input onChange={(e)=>{setId(e.target.value)}}/>
+                    <Input width='300px' height='40px' _onChange={(e)=>{setId(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>닉네임</h4>
-                    <input onChange={(e)=>{setNick(e.target.value)}}/>
+                    <Input width='300px' height='40px' _onChange={(e)=>{setNick(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>비밀번호</h4>
-                    <input onChange={(e)=>{setPwd(e.target.value)}}/>
+                    <Input width='300px' height='40px' _onChange={(e)=>{setPwd(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <h4>비밀번호확인</h4>
-                    <input onChange={(e)=>{setPwd_Check(e.target.value)}}/>
+                    <Input width='300px' height='40px' _onChange={(e)=>{setPwd_Check(e.target.value)}}/>
                 </div>
                 <div className="reg-input">
                     <button onClick={()=>{signup()}}>저장하기</button>

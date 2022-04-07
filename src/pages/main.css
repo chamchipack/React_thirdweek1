@@ -69,13 +69,7 @@
 .reg-input{
     margin-top: 40px;
 }
-.reg-input input{
-    width: 300px;
-    height: 40px;
-    border: none;
-    background-color: #eee;
-    border-radius: 10px;
-}
+
 .reg-input button{
     width: 300px;
     height: 40px;

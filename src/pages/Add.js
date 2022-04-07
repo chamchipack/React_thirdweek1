@@ -16,18 +16,15 @@ function Add(){
     const is_login = useSelector((state)=> state.user.is_login)
     const things = useSelector((state)=>state)
     let imageFile = ''
-    const selectFile = (e) =>{
-        console.log(e.target.files[0])
-        console.log(fileInput.current.files[0])
-        const reader = new FileReader();
+    const selectFile = (e) =>{ // 로컬파일 업로드하기 함수
+        const reader = new FileReader(); // 내장함수(?)
         const file = fileInput.current.files[0];
-        reader.readAsDataURL(file);
+        reader.readAsDataURL(file); // 로컬파일 url로 변환
 
         reader.onloadend = () => {
-            imageFile = reader.result;
-            console.log(imageFile)
-            setFiles(imageFile)
-            dispatch(uploadImage(imageFile))
+            imageFile = reader.result; // 결과값을 변수에 담아주고
+            setFiles(imageFile) // state에 담아서
+            dispatch(uploadImage(imageFile)) // 미들웨어로 보내주기
         }
     }
     
