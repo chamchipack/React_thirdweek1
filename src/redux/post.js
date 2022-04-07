@@ -26,6 +26,14 @@ const initilaPost = {
     insert_dt : 'ds'
 };
 
+export function uploadImage(image){
+    return {type : UPLOAD, image}
+}
+
+export function loadPost(image){
+    return {type : UPLOAD, image}
+}
+
 
 export const getPostFB = () => { // 포스팅 전체 가져오기
     return async function (dispatch, getState){

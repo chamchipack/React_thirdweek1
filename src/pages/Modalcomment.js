@@ -1,6 +1,6 @@
-import { useRef, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { addCommentFB } from '../redux/comment';
+import { useEffect, useRef, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addCommentFB, getCommentFB } from '../redux/comment';
 import './main.css'
 
 function Modalcomment(props){
@@ -8,22 +8,35 @@ function Modalcomment(props){
     const dispatch = useDispatch();
     let getModal = props.getModal;
     let setModal = props.setModal;
+    const post_id = props.post_id
     const text = useRef();
+    const comment = useSelector(state => state.comment.list)
+    console.log(comment)
 
     const onChange = () => {
         setText(text.current.value)
     }
     const addComment = () => {
-        console.log('dddddd')
-        dispatch(addCommentFB(getText))
+        dispatch(addCommentFB(getText, post_id.id))
     }
-    console.log(props.children)
+
+    useEffect(()=>{
+        dispatch(getCommentFB(post_id.id))
+    },[])
     
     return(
         <div className="black-modal" >
             <div className="white-modal">
                 <button className='close-btn' onClick={()=>setModal(!getModal)}>X</button>
                 <div className='comment-box'>
+                    {
+                        comment.map(e=>{
+                            console.log(e)
+                            return(
+                                <p>{e.content}</p>
+                            )
+                        })
+                    }
                 </div>
                 <div>
                     <textarea onChange={onChange} ref={text}></textarea>

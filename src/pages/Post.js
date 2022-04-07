@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Modalcomment from './Modalcomment';
 import { getCommentFB } from '../redux/comment';
 
@@ -10,18 +10,15 @@ function Post(props){
     let comment = props.comment;
     let com;
     const [getModal, setModal] = useState(false);
-
-    useEffect(()=>{
-        dispatch(getCommentFB(post[idx].id))
-    },[])
-    console.log(post[idx])
+    const comment_list = useSelector(state => state.post.list)
+   
     
     // useEffect dispatch 하나씩? 
     return(
         <>
         {
             getModal == true 
-            ? <Modalcomment postId={post[idx].id} getModal={getModal} setModal={setModal} />
+            ? <Modalcomment post_id={comment_list[idx]} getModal={getModal} setModal={setModal} />
             : null
         }
         <div className="post-content post-left">
